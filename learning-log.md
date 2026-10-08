@@ -45,3 +45,18 @@
   (Promise.then, code after await, queueMicrotask), then ONE setTimeout, then microtasks again.
   setTimeout(fn, 0) does not mean "now".
 - Hardest part today: Event loop
+
+## 2026-10-07 / 10-07 (Week 1, Wed)
+
+- Free slots: store times as minutes since midnight, loop in 30-min steps per range,
+  and a slot is valid only if slot + 30 <= end (it must END before work ends).
+- TypeScript narrowing: after `if (status === 'booked')` TS knows the exact type.
+  assertNever(x: never) in a switch's default = compile error if I forget a status.
+  Result<T, E> = { ok: true, value } | { ok: false, error }: "too late to cancel" is a
+  normal answer, not a crash, and the caller must handle both.
+- Stories vs ERD: every story hides facts the app must remember. If a fact has no
+  table.column, it's a gap. Fixed 4: invites, password_resets, gym contact, memberships.status.
+- Pattern: "a link that works once and expires" = token (unique) + expires_at + used_at.
+- Some rules live in the DATABASE (unique token, no double booking), others in APP code
+  (24h cancel rule, password length).
+- Hardest part: stories vs ERD

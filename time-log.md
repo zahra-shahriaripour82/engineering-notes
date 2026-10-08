@@ -14,3 +14,7 @@
 | 10-06 | 03-modules.md (module map) | 1.5h | 2h | needed the purpose explained |
 | 10-06 | ADR-001, 002, 003 | 1.5h | 3.5 learned sessions vs JWT |
 | 10-06 | 10 event-loop snippets | 1h | 1h | wrong predictions in mistakes.md |
+
+| 10-07 | AI-off: free-slots script | 2h | 2h | rusty with plain JS, got Level 1 working |
+| 10-07 | TS Narrowing + BookingStatus/Result/assertNever | 1.5h | 1 | |
+| 10-07 | User stories vs ERD | 2.5h | 2.5h | found invites gap, Claude finished the check |
