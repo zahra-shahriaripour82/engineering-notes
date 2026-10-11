@@ -41,3 +41,15 @@ Why: the question was how many places in the code, not the new value
 - My invites table had no id, no not null, no unique token, and commas between columns (DBML has none).
 - I said the other stories were fine, but A2 (reset password) had nowhere to store the link.
   Lesson: read every Given/When/Then word by word. "works once" and "expires" are columns.
+
+## SQL / Database — 2026-10-11
+
+- I used `COUNT()`, `GROUP BY`, `LEFT JOIN`, `IS NULL`, `LIKE`, `ORDER BY`, `LIMIT`, `DATE()`, `date_trunc()`, and `INTERVAL` in queries.
+- I understood that `COUNT()` counts rows, while `GROUP BY` divides rows into groups before applying aggregate functions.
+- I learned that `LEFT JOIN` + `IS NULL` is useful for finding records that have no related records.
+- I learned that `ORDER BY ... ASC/DESC` controls the result order, and `LIMIT` restricts the number of returned rows.
+- I completed 10 SQL queries for the CoachSlot database and tested the double-booking constraint.
+- The database correctly rejected a second active booking for the same coach at the same start time.
+  Error: `duplicate key value violates unique constraint "bookings_coach_start_active_idx"`.
+
+Lesson: Don't just make a query work. Understand what each SQL clause does and learn the reusable patterns behind real business questions.

@@ -60,3 +60,16 @@
 - Some rules live in the DATABASE (unique token, no double booking), others in APP code
   (24h cancel rule, password length).
 - Hardest part: stories vs ERD
+
+## 2026-10-11 / 10-11 (Week 1, Sun)
+
+- SQL Aggregation: `COUNT()` counts rows, while `GROUP BY` divides rows into groups before counting. Pattern: "how many of each?" = `GROUP BY ...` + `COUNT(...)`.
+- `LEFT JOIN` + `IS NULL`: useful for finding records that have no related records. Example: clients who have never booked.
+- `ORDER BY ... ASC/DESC`: controls result order. `ASC` = earliest/smallest first, `DESC` = latest/largest first. `LIMIT` restricts how many rows are returned.
+- `LIKE`: pattern matching. `LIKE 'cancelled%'` means the value starts with `cancelled`; `%` means any number of characters.
+- `DATE()`: extracts the date from a timestamp. `date_trunc()` can find the start of a period such as a week.
+- SQL query pattern: `SELECT` = what I need, `FROM` = where it starts, `JOIN` = which tables I need, `ON` = how tables connect, `WHERE` = which rows, `GROUP BY` = how to group, `ORDER BY` = how to sort.
+- Database constraints: the double-booking rule is enforced by a partial unique index. PostgreSQL correctly rejected a second `booked` booking for the same coach and start time.
+- Step 2: completed the seed data, tested the double-booking rule, and wrote 10 business queries for CoachSlot.
+
+Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tables → filter rows → group rows → aggregate → sort the result.

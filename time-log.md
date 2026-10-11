@@ -18,3 +18,7 @@
 | 10-07 | AI-off: free-slots script | 2h | 2h | rusty with plain JS, got Level 1 working |
 | 10-07 | TS Narrowing + BookingStatus/Result/assertNever | 1.5h | 1 | |
 | 10-07 | User stories vs ERD | 2.5h | 2.5h | found invites gap, Claude finished the check |
+
+| 10-11 | Postgres | 2h | 4h | -|
+| 10-11 | | tables, seed | 1h | 3h|
+| 10-11 | queries, pgexercises | 1h | 2.5h | - |
