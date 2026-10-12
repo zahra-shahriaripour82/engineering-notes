@@ -73,3 +73,11 @@
 - Step 2: completed the seed data, tested the double-booking rule, and wrote 10 business queries for CoachSlot.
 
 Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tables → filter rows → group rows → aggregate → sort the result.
+
+## Week 1 — Learning Log
+
+- I learned that user stories help me see the big picture of the project and understand its requirements.
+- I learned that an ERD helps me see the tables, relationships, and foreign keys before I start writing the database.
+- I learned that database constraints can protect important business rules. For example, a unique index can stop a coach from having two active bookings at the same time.
+- I learned that `GROUP BY` creates groups and `COUNT(*)` counts the rows in each group.
+- One mistake/confusion I had was struggling with writing user stories and SQL queries. All of these topics were new to me, so I am still a little confused.
