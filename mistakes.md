@@ -53,3 +53,15 @@ Why: the question was how many places in the code, not the new value
   Error: `duplicate key value violates unique constraint "bookings_coach_start_active_idx"`.
 
 Lesson: Don't just make a query work. Understand what each SQL clause does and learn the reusable patterns behind real business questions.
+
+## Team setup (2026-10-13)
+
+- feature.md: no `---` lines around the settings, `notes:` inside the settings block,
+  and my placeholder text ("your instruction") left in 3 sections.
+- CONTRIBUTING.md: rules 4–6 were topics ("When a PR may merge"), not rules that say what to do.
+
+## Splitting CS-1 (2026-10-13)
+
+- Issue #7 created with the title `feat:` only, and #8/#9 not put in the milestone.
+- AC3 title described the test ("I get 404"), not the work (one error format).
+- AC3 "depends on #9", but it only needed the API (#7).

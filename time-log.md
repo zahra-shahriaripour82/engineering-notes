@@ -22,3 +22,7 @@
 | 10-11 | Postgres | 2h | 4h | -|
 | 10-11 | | tables, seed | 1h | 3h|
 | 10-11 | queries, pgexercises | 1h | 2.5h | - |
+
+| 10-13 | Team setup | 1.5h | 4h | -|
+| 10-13 | | tables, seed | 45m|1h|
+| 10-13 | MDN HTTP| 1h | 1h | - |

@@ -81,3 +81,18 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
 - I learned that database constraints can protect important business rules. For example, a unique index can stop a coach from having two active bookings at the same time.
 - I learned that `GROUP BY` creates groups and `COUNT(*)` counts the rows in each group.
 - One mistake/confusion I had was struggling with writing user stories and SQL queries. All of these topics were new to me, so I am still a little confused.
+
+2026-10-13 (Week 2, Day 1)
+
+- Team setup: templates and CONTRIBUTING live in the repo because the workflow is code too:
+  it's versioned, reviewed in a PR, and everyone sees the same rules.
+  The first PR has to be filled by hand because GitHub reads the template from main, not my branch.
+- Issue first, then branch: the issue says WHY and WHEN IT'S DONE before any code exists,
+  so I don't build extra, and `Closes #n` links the code to its reason.
+- A good issue title says what I BUILD, not how I TEST it ("one error format", not "I get 404").
+  "Depends on" = the minimum it needs, not what came before it.
+- Walking skeleton = an empty but real app through every layer (web → API → database → CI → deploy).
+  Build it first because the hardest bugs live between layers; fix them while the app is tiny.
+- HTTP: 401 = not logged in (missing or invalid credentials); 403 = logged in but not allowed.
+  POST is not idempotent, so a double click on "Book" is stopped by the double-booking index → 409.
+- Hardest part: team setup
