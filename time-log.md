@@ -26,3 +26,6 @@
 | 10-13 | Team setup | 1.5h | 4h | -|
 | 10-13 | | tables, seed | 45m|1h|
 | 10-13 | MDN HTTP| 1h | 1h | - |
+
+| 10-14 | Setup + design doc | 3h | 4h | -|
+| 10-14 | | HTTP headers and cookies | 1h|1h|

@@ -65,3 +65,23 @@ Lesson: Don't just make a query work. Understand what each SQL clause does and l
 - Issue #7 created with the title `feat:` only, and #8/#9 not put in the milestone.
 - AC3 title described the test ("I get 404"), not the work (one error format).
 - AC3 "depends on #9", but it only needed the API (#7).
+
+## CS-1 design doc (2026-10-14)
+
+- My Problem was a wish ("I want a fresh clone and web app...") instead of a problem.
+  Lesson: a Problem answers 3 things: what's missing, who feels it, how we'll know it's solved (the ACs).
+- My first options didn't answer the same question: "monorepo vs separate repo" (the ticket had
+  already decided it) and "Railway vs free host" ("free host" isn't one specific thing).
+  Lesson: 2 real, specific options that answer the same still-open question.
+- I compared hosts on autoscaling (it doesn't matter with almost no users) and wrote a Render
+  price ($1/month) that isn't in their docs.
+  Lesson: criteria come from my situation; every number comes from a page I can link.
+- I chose Render but pasted Railway's secrets, migrations and "Revisit when" lines, and wrote
+  "Choice: B (Railway)".
+  Lesson: never paste a line I can't explain. Pasted text must be adapted to MY choice.
+- I copied the preview instead of the raw Markdown, so all the formatting broke. My PR said
+  "tables render" before I had checked.
+  Lesson: do the check first, then write it in "How I tested it". Upload files, don't copy previews.
+- I merged with a merge commit, so main got "Add files via upload" in its history.
+  Lesson: use Squash and merge, with a clear title.
+- I skipped the AI-on review sheet for Decisions 3 and 4.

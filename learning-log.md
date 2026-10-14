@@ -96,3 +96,24 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
 - HTTP: 401 = not logged in (missing or invalid credentials); 403 = logged in but not allowed.
   POST is not idempotent, so a double click on "Book" is stopped by the double-booking index → 409.
 - Hardest part: team setup
+
+2026-10-14 (Week 2, Day 2)
+
+- Design doc = decide HOW before writing code. It's "correct" when a reader can follow my
+  reasoning and disagree with a specific line.
+- A decision in 5 moves: situation (forces) → 2 real options → compare with facts →
+  "Because [force], [criterion] matters most, so [option]" → what we give up + revisit when.
+- One-way door (hard to undo: schema of live data, public API) = think long.
+  Two-way door (folder name, a library) = pick the simple option and move on.
+- Hosting facts: Render free API sleeps after 15 min (~1 min to wake). Render's free Postgres is
+  deleted after 30 + 14 days. Neon's free Postgres doesn't expire (1 GB, pauses after 5 min idle).
+  So: API on Render, database on Neon, $0.
+- No pre-deploy command on free? Run migrations in the start command. Drizzle skips migrations
+  that already ran, so that's safe.
+- Errors: a global exception filter, because an unknown route's 404 never reaches my route code.
+  A 500 shows only "Something went wrong." + requestId; details go to the logs only.
+  /health is a status report with its own body (200 or 503), not an error.
+- Request ids: middleware takes a valid incoming x-request-id or creates a UUID; the logger adds
+  it to every log line, so I can search one request.
+- Headers and cookies
+- Hardest part: design doc
