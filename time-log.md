@@ -29,3 +29,9 @@
 
 | 10-14 | Setup + design doc | 3h | 4h | -|
 | 10-14 | | HTTP headers and cookies | 1h|1h|
+
+| 10-17 | monorepo, PR #17, fixes, merge | 2h | 3.5 h |
+| 10-17 | | setup: packages, Drizzle questions | 45 min | 45m|
+| 10-17 | Schema | 1h | 2.5 h |  
+| 10-17 | /health + Neon + .env + migrate | 1h | 1.5 h |
+| 10-17 | PR description + issue number | 15m |15m |

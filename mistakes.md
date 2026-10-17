@@ -85,3 +85,26 @@ Lesson: Don't just make a query work. Understand what each SQL clause does and l
 - I merged with a merge commit, so main got "Add files via upload" in its history.
   Lesson: use Squash and merge, with a clear title.
 - I skipped the AI-on review sheet for Decisions 3 and 4.
+
+## Week 2 Day 3: monorepo, Drizzle, /health (2026-10-17)
+
+- I created pnpm-workspace.yaml outside the repo root, so git said "nothing to commit".
+  Lesson: when git doesn't see a file, check where I am: `git rev-parse --show-toplevel` and `ls`.
+- The lockfile didn't include apps/api and apps/web until I ran `pnpm install` at the root.
+  Lesson: in a workspace, always install from the root. There is only one lockfile.
+- I copied the Drizzle docs example (integer id, length 255) instead of translating MY SQL.
+  Lesson: the docs show the syntax; my SQL file decides the content.
+- My editor auto-imported from `drizzle-orm/gel-core` and `mysql-core`, which caused the
+  "MySqlColumn ... PgTable" error.
+  Lesson: after every auto-import, check the import line. Postgres = `drizzle-orm/pg-core` only.
+- I used `timestamp()` without `{ withTimezone: true }`, so it would have been `timestamp`, not `timestamptz`.
+  Lesson: compare type by type with the SQL, and only then say "done".
+- In memberships: wrong role values, a missing status column, and `unique` inside the columns.
+  Lesson: constraints that use 2+ columns go in the third argument `(t) => [ ... ]`, in ONE list.
+- My hand-written db/001-schema.sql had a missing comma in bookings, and I never noticed,
+  because I never ran the file again after editing it.
+  Lesson: run SQL after every change. If it never ran, it isn't done.
+- I didn't know my AC5 issue number (#12).
+  Lesson: keep the issue list open while writing the PR, or type `#` in the description to search.
+- I almost ticked "503 with wrong password" without doing it.
+  Lesson: "How I tested it" lists only what I actually did.

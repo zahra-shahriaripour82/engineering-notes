@@ -117,3 +117,25 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
   it to every log line, so I can search one request.
 - Headers and cookies
 - Hardest part: design doc
+
+2026-10-17 (Week 2, Day 3)
+
+- Monorepo: one root package.json, pnpm-workspace.yaml with `apps/*`, one lockfile.
+  `pnpm --filter api ...` runs a command inside one app.
+- Drizzle schema = my SQL written in TypeScript. Columns go in the 2nd argument;
+  checks, multi-column uniques and indexes go in the 3rd: `(t) => [ ... ]`.
+- Special indexes: a partial index is `uniqueIndex(...).on(...).where(sql`...`)`;
+  an expression index is `uniqueIndex(...).on(sql`lower(${t.email})`)`.
+- `drizzle-kit generate` writes the SQL; `drizzle-kit migrate` runs it. The migration file
+  (0000_xxx.sql + meta/) is committed and never edited by hand. To change it, change the schema
+  and generate a new one.
+- Running migrate twice is safe: Drizzle remembers which migrations ran (AC5).
+- The generated SQL can look different from mine (quotes, names, foreign keys at the end) and
+  still be the same database. Compare meaning, not formatting.
+- .env holds secrets (DATABASE_URL). It's in .gitignore before it exists. .env.example shows
+  which variables are needed, without values.
+- One `db` object for the whole app, because each connection is expensive; a pool shares them.
+- /health: try `select 1`. OK means 200 `{api:"ok",database:"ok"}`; error means 503 `{api:"ok",database:"down"}`.
+  I set the status with `res.status()`, not `throw`, so the global error filter won't rewrite the body.
+- Test the failure path on purpose (wrong password), not only the happy path.
+- Hardest part: Drizzle schema
