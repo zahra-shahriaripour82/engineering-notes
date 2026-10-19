@@ -35,3 +35,6 @@
 | 10-17 | Schema | 1h | 2.5 h |  
 | 10-17 | /health + Neon + .env + migrate | 1h | 1.5 h |
 | 10-17 | PR description + issue number | 15m |15m |
+
+| 10-19 | API error responses | 1h | 2h | -|
+| 10-19 |global AllExceptionsFilter | 1| 1.5h||

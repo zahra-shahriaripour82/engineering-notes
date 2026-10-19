@@ -139,3 +139,26 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
   I set the status with `res.status()`, not `throw`, so the global error filter won't rewrite the body.
 - Test the failure path on purpose (wrong password), not only the happy path.
 - Hardest part: Drizzle schema
+
+# Learning Log — 2026-10-19
+
+- Learned how `HttpException` represents HTTP errors and how `@Catch()` allows a filter to catch all exception types.
+- Learned how `ExceptionFilter`, `ArgumentsHost`, `switchToHttp()`, `getRequest()`, and `getResponse()` work together to handle HTTP errors.
+- Learned how to register a global exception filter using `APP_FILTER` in a module.
+- Understood why `APP_FILTER` is preferable to `app.useGlobalFilters()` when tests create the application without running `main.ts`.
+
+### 2. API Error Handling and Security
+
+- Learned to return a consistent error format with an error code and request ID.
+- Understood why unexpected `500 Internal Server Error` responses should contain a generic message rather than exposing `exception.message`.
+- Learned that actual error details should be logged on the server for debugging.
+- Learned how to handle `404 Not Found` errors separately from unexpected server errors.
+
+### 3. Request ID Handling
+
+- Learned how request IDs help correlate API responses with server logs.
+- Practiced testing three request ID scenarios:
+  - Generate a UUID when the client does not provide an ID.
+  - Preserve a valid client-provided request ID.
+  - Reject an excessively long ID and generate a replacement.
+- Learned how to test response headers and error response bodies.

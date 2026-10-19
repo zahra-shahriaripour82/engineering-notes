@@ -108,3 +108,15 @@ Lesson: Don't just make a query work. Understand what each SQL clause does and l
   Lesson: keep the issue list open while writing the PR, or type `#` in the description to search.
 - I almost ticked "503 with wrong password" without doing it.
   Lesson: "How I tested it" lists only what I actually did.
+
+## week 2 Day 4
+
+Testing: I needed to distinguish between writing e2e tests, running them, and manually verifying the API with curl. Test descriptions should reflect what I actually ran and verified.
+
+Lint: Oxlint reported a warning about converting req.id to a string. I need to understand the request ID's actual type and fix the underlying type issue rather than blindly suppressing the warning.
+
+Error handling: I learned why unexpected 500 errors should return a generic message to clients while the actual error details remain in server logs.
+
+NestJS filter registration: I learned to register a global exception filter using APP_FILTER so it is also available when tests create the application without running main.ts.
+
+ESM imports: I learned that this project's import paths use .js extensions even when the source files are TypeScript files.
