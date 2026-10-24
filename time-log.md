@@ -38,3 +38,15 @@
 
 | 10-19 | API error responses | 1h | 2h | -|
 | 10-19 |global AllExceptionsFilter | 1| 1.5h||
+
+
+| 10-21 | Ubuntu: .env, DATABASE_URL undefined, Neon debugging | 0 | 3 | not planned, Neon never fixed |
+| 10-23 | Local Postgres in Docker + docker group | 0 | 1h | not planned |
+| 10-24 | Part A: read GitHub Actions docs | 15m | 2h | with breaks |
+| 10-24 | Part A: write ci.yml (Lint to Test) | 30m | 20m | - |
+| 10-24 | docker-compose password from .env | 0 | 10m | not planned |
+| 10-24 | Part A: PR, fix ci.yml, CI green, merge | 35m | 40m | - |
+| 10-24 | Part B: API on Render (2 build errors) | 45m | 50m | EROFS, EBADDEVENGINES |
+| 10-24 | Part B: website on Render instead of Vercel | 20m | 15m | no GitHub login |
+| 10-24 | README + chore/deploy PR description | 15m | 20m | AI-on |
+| 10-24 | Part C: what happens when I open coachslot | 1h | 1h|  |

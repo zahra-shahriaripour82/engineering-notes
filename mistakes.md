@@ -120,3 +120,34 @@ Error handling: I learned why unexpected 500 errors should return a generic mess
 NestJS filter registration: I learned to register a global exception filter using APP_FILTER so it is also available when tests create the application without running main.ts.
 
 ESM imports: I learned that this project's import paths use .js extensions even when the source files are TypeScript files.
+
+## Day 5: Ubuntu setup, local Postgres, CI, deploy (2026-10-21 to 2026-10-24)
+
+- After cloning on Ubuntu, /health said database:down because the new machine had no
+  database for the project. I first tried Neon's "dev" branch, which didn't exist there.
+  Lesson: a fresh clone has code but no .env and no data. Setting up a new machine is its own step.
+- "url: undefined": drizzle-kit couldn't see DATABASE_URL. I was running commands from the wrong
+  folder, and .env wasn't where I thought it was.
+  Lesson: check `pwd` and `ls -a` first. .env must be in the folder where the command runs (apps/api).
+- I spent a long time on Neon timing out from my laptop (TCP open, TLS silent, MTU tests).
+  It never got fixed.
+  Lesson: time-box network debugging. After ~1h, switch to the plan B (local Docker) and move on.
+  Render reaches Neon fine, so it was my network, not my code.
+- A long `node -e "..."` command broke when I pasted it.
+  Lesson: put debug code in a small file (check-db.cjs) and delete it afterwards.
+- "permission denied ... docker.sock": my user wasn't in the docker group, and VS Code's
+  terminal still had the old groups after `usermod`.
+  Lesson: after `usermod -aG docker $USER`, log out or restart (VS Code too). Use sudo only as a temporary workaround.
+- ci.yml: `run: pnpm --filter |`, wrong script names, "2" to mean "run twice", a stray "yaml" line,
+  wrong indentation.
+  Lesson: YAML is spaces and structure. `run: |` then one command per line. Use the exact
+  script names from package.json. Validate YAML before pushing.
+- The docker-compose password was hardcoded, and it would have gone to GitHub.
+  Lesson: read secrets with `${VAR}` from .env. Commit .env.example with fake values only.
+- Render build: `npm install -g pnpm` failed with EROFS (read-only file system).
+  Lesson: on a hosting platform I don't own the system folders. Use `npx`.
+- Then npx failed with EBADDEVENGINES, because package.json says "use pnpm" (devEngines).
+  Lesson: read the error name. EBADDEVENGINES means "wrong package manager", and `--force`
+  makes it a warning.
+
+  Lesson: next time, fill in at least the parts I know (what, why, how I tested) before asking.

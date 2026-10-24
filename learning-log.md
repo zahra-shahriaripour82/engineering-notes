@@ -162,3 +162,27 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
   - Preserve a valid client-provided request ID.
   - Reject an excessively long ID and generate a replacement.
 - Learned how to test response headers and error response bodies.
+
+
+
+2026-10-24 (Week 2, Day 5)
+
+- A new machine = clone + install + .env + database + migrate. Code is in git; secrets and data are not.
+- Docker Compose Postgres: `docker compose up -d` starts it, `docker compose down -v` deletes the data.
+  Postgres reads POSTGRES_PASSWORD only the first time it creates the volume.
+- Port binding `127.0.0.1:5432:5432` means only my laptop can reach the database.
+- `drizzle-kit migrate` runs the migration files that haven't run yet and records them, so running it
+  twice changes nothing. I use it on my laptop, in CI and on Render.
+- CI = a fresh computer on every push. It runs lint, typecheck, migrate twice, build and tests against
+  a real Postgres service container. The CI database password isn't a secret, because that container
+  is thrown away after the run.
+- Branch protection with the "ci" check means main only gets green code.
+- Environments: local (Docker), CI (service container), production (Neon production branch).
+  Same code, different DATABASE_URL.
+- Render: build command (install + build), start command (migrate + start), health check path /health.
+  Secrets go in the dashboard, never in git.
+- Security choice: no GitHub login on Render. The public repo link works, but then there's no auto-deploy,
+  so a deploy hook (a secret URL) + a CI `deploy` job (needs: ci, only on push to main) does it.
+- Errors have names (EROFS, EBADDEVENGINES). The name is the first clue: search it before guessing.
+- Free Render services sleep. The first request after a while is slow (cold start).
+- Hardest part: CI
