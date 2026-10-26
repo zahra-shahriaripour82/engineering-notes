@@ -186,3 +186,30 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
 - Errors have names (EROFS, EBADDEVENGINES). The name is the first clue: search it before guessing.
 - Free Render services sleep. The first request after a while is slow (cold start).
 - Hardest part: CI
+
+
+
+
+
+2026-10-26 (Week 2, Day 6)
+
+- A Nest feature = 3 files in one folder: module (wiring), controller (HTTP: paths, params, body,
+  status codes), service (logic + database). The controller gets the service through its
+  constructor (dependency injection). The module lists both and is imported by AppModule.
+- Decorators I used from memory: @Module, @Controller('gyms'), @Get(), @Get(':id'), @Post(),
+  @Param('id'), @Body(), @Injectable().
+- POST returns 201 by default in Nest; GET returns 200.
+- Throwing NotFoundException in the service + my global filter = the right 404 JSON for free.
+  That's why Day 4 mattered.
+- Pipes (like ParseUUIDPipe) run BEFORE the controller and reject bad input early.
+- Drizzle: select().from(t), .where(eq(t.id, id)), insert(t).values(dto).returning().
+- Hashing (Set/Map) turns "search again and again" from O(n) into O(1), so many O(n²) problems become O(n).
+  - Contains Duplicate: Set of seen numbers. O(n) time, O(n) space.
+  - Valid Anagram: count letters in one string, subtract with the other, all counts must be 0. O(n).
+  - Two Sum: Map of number -> index. For each x, look for target - x before adding x. O(n).
+- curl -v shows the whole request: DNS (resolved, IP), TCP (Trying, Connected to :443),
+  TLS (handshake, ALPN h2, certificate subject, issuer, expiry), HTTP request (> lines),
+  HTTP response (< lines, including my own x-request-id header).
+- curl -w timings: dns, connect, appconnect (TLS), starttransfer (first byte). Each one counts
+  from the start. A second run makes DNS faster because of caching.
+- Hardest part: curl

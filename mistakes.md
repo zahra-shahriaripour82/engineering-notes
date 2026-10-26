@@ -151,3 +151,18 @@ ESM imports: I learned that this project's import paths use .js extensions even 
   makes it a warning.
 
   Lesson: next time, fill in at least the parts I know (what, why, how I tested) before asking.
+
+
+  ## Day6 
+## Day 6: Nest module from memory, NeetCode, curl -v (2026-10-25 to 2026-10-26)
+
+I forgot using constructor for reading services.
+ 
+- [ ] I didn't remember how Drizzle returns one row. `select ... where` returns an ARRAY,
+  so I had to take `[0]` (or destructure `const [gym] = ...`).
+  Lesson: Drizzle select is always a list. An empty list means "not found", which means throw NotFoundException.
+- [ ] `insert` didn't return the new row until I added `.returning()`.
+- [ ] `GET /gyms/not-a-uuid` returned 500, not 400.
+  Lesson: my error filter only handles 404. Every other HttpException becomes 500. Fix this in Week 3.
+- [ ] curl -v: I mixed up which lines were TCP and which were TLS.
+  Lesson: "Connected to" = TCP done. "TLS handshake" / "SSL connection using" = TLS.

@@ -50,3 +50,15 @@
 | 10-24 | Part B: website on Render instead of Vercel | 20m | 15m | no GitHub login |
 | 10-24 | README + chore/deploy PR description | 15m | 20m | AI-on |
 | 10-24 | Part C: what happens when I open coachslot | 1h | 1h|  |
+
+
+
+
+| 10-25 | GymsModule from memory (closed book) | 1.5h | 2h|
+| 10-25 | GymsModule: curl by hand + e2e test | 0.5h | 45m | 
+
+| 10-26 | NeetCode: Contains Duplicate | 20m | 20min | 
+| 10-26 | NeetCode: Valid Anagram | 20m | 20min | 
+| 10-26 | NeetCode: Two Sum | 20m | 20min| 
+| 10-26 | curl -v lab: labels + timings | 45m | 1h| 
+| 10-26 | curl -v write-up | 15m | 15min|
