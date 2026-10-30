@@ -153,7 +153,7 @@ ESM imports: I learned that this project's import paths use .js extensions even 
   Lesson: next time, fill in at least the parts I know (what, why, how I tested) before asking.
 
 
-  ## Day6 
+ 
 ## Day 6: Nest module from memory, NeetCode, curl -v (2026-10-25 to 2026-10-26)
 
 I forgot using constructor for reading services.
@@ -166,3 +166,34 @@ I forgot using constructor for reading services.
   Lesson: my error filter only handles 404. Every other HttpException becomes 500. Fix this in Week 3.
 - [ ] curl -v: I mixed up which lines were TCP and which were TLS.
   Lesson: "Connected to" = TCP done. "TLS handshake" / "SSL connection using" = TLS.
+
+
+
+
+
+
+## Week 3, Day 1: vague ticket, PO questions, stories, threat model (2026-10-28 to 2026-10-30)
+
+- I ran `test:2e2` instead of `test:e2e`.
+  Lesson: when pnpm says "recursive exec failed", first check the script name in package.json.
+- My first 5 product-owner questions were copied from the guide's examples.
+  Lesson: choosing the questions IS the skill. Method: pick a person + a moment, ask what should happen,
+  keep it only if the answer changes what I build.
+- I didn't see that O1 ("This email already has an account") and A1 ("Email or password is incorrect")
+  disagree: one hides who has an account, the other tells.
+  Lesson: check every message an attacker can see on ALL pages (sign-up, login, forgot password).
+- I first rate-limited sign-up "per email". The attacker tries many emails, so that never triggers.
+  Then for login I had to count the opposite way: per email, because the attacker targets one account.
+  Lesson: count by whatever stays the SAME for the attacker.
+- My A3 story mixed "click Log out" and "logged out after 15 minutes": two triggers, two stories.
+  Lesson: one trigger = one story.
+- "I want to log in again" / "then log out my account" / "then can log in": not real wishes, not testable.
+  Lesson: "I want" = the user's real wish; "then" = a page, a message, a number or a status I can check.
+- Threat model: I put "check the role" as the defense for a stolen session.
+  Lesson: a role check can't tell the real coach from someone using her session. Ending the session can.
+- Threat model: I wrote what to do AFTER a database leak (shut down, tell users).
+  Lesson: a threat model asks what to do BEFORE, so the leak hurts less (argon2id hash + salt).
+- I wrote the stories and threat model only in the chat, so `git commit` said "nothing to commit".
+  Lesson: work in the real files in the repo from the start.
+- When I felt time pressure, I asked "complete it for me" (A4, A5, threat rows).
+  Lesson: the goal is learning, not finishing. Stop for the day, or ask and then explain it back.

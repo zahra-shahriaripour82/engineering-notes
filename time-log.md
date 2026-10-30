@@ -39,7 +39,6 @@
 | 10-19 | API error responses | 1h | 2h | -|
 | 10-19 |global AllExceptionsFilter | 1| 1.5h||
 
-
 | 10-21 | Ubuntu: .env, DATABASE_URL undefined, Neon debugging | 0 | 3 | not planned, Neon never fixed |
 | 10-23 | Local Postgres in Docker + docker group | 0 | 1h | not planned |
 | 10-24 | Part A: read GitHub Actions docs | 15m | 2h | with breaks |
@@ -51,9 +50,6 @@
 | 10-24 | README + chore/deploy PR description | 15m | 20m | AI-on |
 | 10-24 | Part C: what happens when I open coachslot | 1h | 1h|  |
 
-
-
-
 | 10-25 | GymsModule from memory (closed book) | 1.5h | 2h|
 | 10-25 | GymsModule: curl by hand + e2e test | 0.5h | 45m | 
 
@@ -62,3 +58,13 @@
 | 10-26 | NeetCode: Two Sum | 20m | 20min| 
 | 10-26 | curl -v lab: labels + timings | 45m | 1h| 
 | 10-26 | curl -v write-up | 15m | 15min|
+
+| 10-28 | Create the CS-2 issue | 10m | ~15m | - |
+| 10-28 | 5 PO questions (first try copied, then my own) | 30m | ~1h | rewrote them myself |
+| 10-29 | Re-read stories: O1 vs A1 enumeration, decision | 20m | ~30m | trade-off, risk accepted |
+| 10-29 | O1 rate-limit criterion + threat row 5 | 15m | ~30m | per IP, not per email |
+| 10-29 | New stories A3, A4, A5 | 45m | ~30m | A4, A5 completed by Claude |
+| 10-30 | A6 too many wrong passwords | 15m | ~10m | wrote it myself 👍 |
+| 10-30 | Threat model rows 1-4 | 45m | ~45m | rows 2-4 finished with Claude |
+| 10-30 | Commit, push, PR #25 | 10m | ~30m | files were only in chat |
+| 10-__ | OWASP Password Storage reading + 5 answers | 1h | ? | - |

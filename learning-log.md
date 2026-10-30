@@ -213,3 +213,26 @@ Lesson: Don't memorize SQL as isolated commands. Think in patterns: connect tabl
 - curl -w timings: dns, connect, appconnect (TLS), starttransfer (first byte). Each one counts
   from the start. A second run makes DNS faster because of caching.
 - Hardest part: curl
+
+
+
+### 2026-10-30 (Week 3, Day 1)
+
+- A vague ticket describes a pain, not a solution. My job: separate facts from guesses,
+  then turn the pain into stories.
+- Product owner questions: ask about people, rules and priorities. Decide the technology myself.
+  "I don't know" is also an answer: then I propose a default and write it as an assumption.
+- Account enumeration = an attacker learns which emails have an account. It's a trade-off:
+  clear messages vs. privacy. I chose clarity + rate limiting, and wrote the risk as ACCEPTED, with a reason.
+- Rate limiting: sign-up counts per IP address (many emails, one attacker),
+  login counts per email (one account, maybe many computers). Shared gym Wi-Fi = one IP for everyone.
+- Good acceptance criteria are testable: "after 15 minutes idle, the next click shows the login page".
+- A threat model answers 4 questions: what are we building, what can go wrong, what will we do,
+  how do we know it worked. Columns: threat, who/how, impact, defense, proof.
+- My stories ARE my defenses (A3/A4/A5 defend against the shared-computer threat).
+- Passwords: store only an argon2id hash with a unique salt. Slow on purpose, so guessing takes years.
+- Stolen session cookie: HttpOnly (JavaScript can't read it), Secure (https only),
+  store a hash of the session ID in the DB, and limit damage with idle timeout + "log out everywhere".
+  Server sessions (ADR-003) can be deleted at once.
+- Roles answer "what may this user do?" (Week 4). Sessions answer "is this really the user?" (this week).
+- Hardest part: ______
